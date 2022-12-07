@@ -1,5 +1,6 @@
 import VueRouter from 'vue-router';
 import HeaderComponent from "./components/HeaderComponent";
+import FooterComponent from "./components/FooterComponent";
 import CookingListComponent from "./components/CookingListComponent";
 
 /**
@@ -36,6 +37,7 @@ const router = new VueRouter({
 
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 Vue.component('header-component', HeaderComponent);
+Vue.component('footer-component', FooterComponent);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
