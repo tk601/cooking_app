@@ -1,6 +1,10 @@
 import VueRouter from 'vue-router';
 import HeaderComponent from "./components/HeaderComponent";
-import CookingListComponent from "./components/CookingListComponent";
+import HomeComponent from "./components/HomeComponent";
+import FooterComponent from "./components/FooterComponent";
+import RefrigeratorComponent from "./components/RefrigeratorComponent";
+
+import RecipeComponent from "./components/RecipeComponent";
 
 /**
  * First we will load all of this project's JavaScript dependencies which
@@ -14,14 +18,26 @@ window.Vue = require('vue').default;
 // ルータをインストール
 Vue.use(VueRouter)
 const router = new VueRouter({
-  mode: 'history',
-  routes: [
-      {
-          path: '/tasks',
-          name: 'task.list',
-          component: CookingListComponent
-      },
-  ]
+    mode: 'history',
+    routes: [
+        // home画面
+        {
+            path: '/',
+            name: 'home',
+            component: HomeComponent
+        },
+        // 冷蔵庫
+        {
+            path: '/refrigerator',
+            name: 'refrigerator',
+            component: RefrigeratorComponent
+        },
+        {
+            path: '/recipe',
+            name: 'recipe',
+            component: RecipeComponent
+        },
+    ]
 });
 /**
  * The following block of code may be used to automatically register your
@@ -36,6 +52,8 @@ const router = new VueRouter({
 
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 Vue.component('header-component', HeaderComponent);
+Vue.component('home-component', HomeComponent);
+Vue.component('footer-component', FooterComponent);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

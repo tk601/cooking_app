@@ -13,9 +13,11 @@
     <link href="{{ mix('/css/app.css') }}" rel="stylesheet">
 </head>
 <body>
+<img src="{{ asset('image/sample.jpeg') }}" alt="sample.jpeg">
+
 <div id="app">
-    <header-component></header-component>
     <router-view></router-view>
+    <footer-component></footer-component>
 </div>
 <!-- Scripts -->
 <script src="{{ mix('/js/app.js') }}" defer></script>

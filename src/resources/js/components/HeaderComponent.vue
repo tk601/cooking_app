@@ -1,4 +1,5 @@
 <template>
+<div>
     <div class="container-fluid bg-dark mb-3">
         <div class="container">
             <nav class="navbar navbar-dark">
@@ -12,6 +13,7 @@
             </nav>
         </div>
     </div>
+</div>
 </template>
 
 <script>
