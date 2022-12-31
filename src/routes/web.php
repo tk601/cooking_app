@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\TestController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +14,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/{any}', function() {
-    return view('app');
-})->where('any', '.*');
+// Route::get('/{any}', function() {
+//     return view('app');
+// })->where('any', '.*');
+
+Route::get('/', [TestController::class, 'index']);
