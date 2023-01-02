@@ -11,6 +11,12 @@
                     <router-link v-bind:to="{name: 'recipe'}">
                         <button class="btn btn-success">料理を作る</button>
                     </router-link>
+                    
+                    <!-- ログイン処理あとで復活(20220102) -->
+                    
+                    <!-- <router-link v-bind:to="{name: 'jslogin'}">
+                        <button class="btn btn-success">ログイン画面</button>
+                    </router-link> -->
                 </div>
             </nav>
         </div>

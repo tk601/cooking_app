@@ -3,6 +3,7 @@ import HeaderComponent from "./components/HeaderComponent";
 import HomeComponent from "./components/HomeComponent";
 import FooterComponent from "./components/FooterComponent";
 import RefrigeratorComponent from "./components/RefrigeratorComponent";
+import LoginComponent from "./components/LoginComponent";
 
 import RecipeComponent from "./components/RecipeComponent";
 
@@ -20,6 +21,12 @@ Vue.use(VueRouter)
 const router = new VueRouter({
     mode: 'history',
     routes: [
+        // login画面　ログイン処理あとで復活(20220102)
+        {
+            path: '/jslogin',
+            name: 'jslogin',
+            component: LoginComponent
+        },
         // home画面
         {
             path: '/',

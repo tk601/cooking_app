@@ -16,3 +16,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/{any}', function() {
     return view('app');
 })->where('any', '.*');
+
+
+// ログイン処理あとで復活(20220102)
+// Auth::routes();
+// Route::get('/test', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
