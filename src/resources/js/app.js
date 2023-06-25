@@ -23,24 +23,29 @@ const router = new VueRouter({
     routes: [
         // login画面　ログイン処理あとで復活(20220102)
         {
-            path: '/jslogin',
+            path: '/route/jslogin',
             name: 'jslogin',
             component: LoginComponent
         },
         // home画面
         {
-            path: '/',
+            path: '/route',
             name: 'home',
             component: HomeComponent
         },
         // 冷蔵庫
+            // 冷蔵庫の中身編集画面
+            // 材料一覧画面
         {
-            path: '/refrigerator',
+            path: '/route/refrigerator',
             name: 'refrigerator',
             component: RefrigeratorComponent
         },
+        // レシピ
+            // 現在作成できるレシピ一覧
+            // 全てのレシピ一覧
         {
-            path: '/recipe',
+            path: '/route/recipe',
             name: 'recipe',
             component: RecipeComponent
         },

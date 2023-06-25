@@ -1,0 +1,35 @@
+.ingredient {
+  position: relative;
+  text-align: center;
+  display: inline-block;
+  width: 7rem;
+  height: 7rem;
+}
+
+.circle-img {
+  width: 7rem;
+  height: 7rem;
+  border-radius: 50%;
+  border: 0.4rem solid #bebebe;
+}
+
+.check-logo {
+  position: absolute;
+  display: none;
+  top: 0rem;
+  right: 0rem;
+  width: 2rem;
+  height: 2rem;
+  color: #5cb85c;
+  border-radius: 50%;
+}
+
+.ingredients-name {
+  text-align: center;
+}
+
+.recipe-img {
+  width: 100%;
+}
+
+

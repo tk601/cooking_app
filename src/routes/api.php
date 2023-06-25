@@ -17,3 +17,12 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+// 材料一覧の取得
+Route::get('/ingredient_list', 'App\Http\Controllers\IngredientController@ingredientList')->name('ingredient.list');
+
+// 冷蔵庫データの更新
+Route::post('/update_refrigerator', 'App\Http\Controllers\RefrigeratorController@update');
+
+// レシピデータの取得
+Route::get('/recipe_list', 'App\Http\Controllers\RecipeController@recipeList');

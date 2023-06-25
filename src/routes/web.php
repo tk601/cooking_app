@@ -13,11 +13,35 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/{any}', function() {
-    return view('app');
-})->where('any', '.*');
+// k_todo:あとでrouteを消し、全てvueを使用したものにする
+Route::get('/route/{any}', function () {
+    return view('main');
+})
+->where('any', '.*');
 
+Route::get('/', function () {
+    return view('main');
+});
 
 // ログイン処理あとで復活(20220102)
 // Auth::routes();
-// Route::get('/test', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/test', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+// ログインした後にログアウトボタンを表示できるview
+Route::get('/app', function () {
+    return view('layouts/app');
+});
+
+
+// ーーーーーーーーーーーーーーーーーーー 以下メモよう ーーーーーーーーーーーーーーーーーーー
+
+// 全てvue-routerを使用したとき
+// Route::get('/{any}', function() {
+//     return view('main');
+// })->where('any', '.*');
+
+// 画面を遷移してもセッションが残る？
+// Route::group(['middleware' => ['web']], function () {
+//     // ここに処理を入れる
+//     ->middleware('session');
+// });

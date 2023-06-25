@@ -3,7 +3,7 @@
     <div class="container-fluid bg-dark mb-3">
         <div class="container">
             <nav class="navbar navbar-dark">
-                <span class="navbar-brand mb-0 h1">お料理アプリ</span>
+                <span class="navbar-brand mb-0 h1">cooking_app</span>
                 <div>
                     <router-link v-bind:to="{name: 'refrigerator'}">
                         <button class="btn btn-success">冷蔵庫</button>
@@ -14,9 +14,9 @@
                     
                     <!-- ログイン処理あとで復活(20220102) -->
                     
-                    <!-- <router-link v-bind:to="{name: 'jslogin'}">
+                    <router-link v-bind:to="{name: 'jslogin'}">
                         <button class="btn btn-success">ログイン画面</button>
-                    </router-link> -->
+                    </router-link>
                 </div>
             </nav>
         </div>

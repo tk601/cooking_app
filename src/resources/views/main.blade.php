@@ -11,15 +11,18 @@
 
     <!-- Styles -->
     <link href="{{ mix('/css/app.css') }}" rel="stylesheet">
+    <link href="{{ mix('/css/main.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.4.0/css/all.css">
 </head>
 <body>
-<img src="{{ asset('image/sample.jpeg') }}" alt="sample.jpeg">
-
 <div id="app">
     <router-view></router-view>
     <footer-component></footer-component>
 </div>
+
 <!-- Scripts -->
 <script src="{{ mix('/js/app.js') }}" defer></script>
+<script defer src="https://use.fontawesome.com/releases/v6.4.0/js/all.js"></script>
+
 </body>
 </html>

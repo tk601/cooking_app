@@ -18,7 +18,11 @@ return [
     |
     */
 
-    'driver' => env('SESSION_DRIVER', 'file'),
+    // デフォルトの設定
+    // 'driver' => env('SESSION_DRIVER', 'file'),
+
+    // セッションデータをDBに保存する
+    'driver' => 'database',
 
     /*
     |--------------------------------------------------------------------------
