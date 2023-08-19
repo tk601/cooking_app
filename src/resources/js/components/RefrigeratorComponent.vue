@@ -25,7 +25,7 @@
     </div>
     <div class="container">
         <div class="row">
-            <div class="col-4 text-center" v-for="ingredient in ingredients">
+            <div class="col-4 text-center" v-for="(ingredient, index) in ingredients" :key="index">
                 <div class="ingredient" @click="selectIngredient(ingredient)">
                     <img src="/image/icons/check_icon.jpg" class="check-logo" :class="{ 'check-active': ingredient.already_status }">
                     <img :src="ingredient.ingredients_image" class="circle-img" :class="{ 'img-active': ingredient.already_status }">    
@@ -46,56 +46,52 @@
 }
 </style>
 
-<script>
-export default {
-    data: function () {
-        return {
-            ingredients: []
-        }
-    },
-    methods: {
-        // 材料の一覧取得
-        getIngredients() {
-            axios.get('/api/ingredient_list')
-            .then((res) => {
-                this.ingredients = res.data.allIngredientList;
-                console.log('材料一覧の取得');
-                console.log(this.ingredients);
-            });
-        },
 
-        // 材料を選択した時の挙動
-        selectIngredient(ingredient) {
-            // 冷蔵庫にあるかどうかのステータスの変更
-            ingredient.already_status = !ingredient.already_status;
+<script setup>
+import { ref } from "vue";
 
-            var insertStatus = '';
-            if (ingredient.already_status === true) {
-                insertStatus = true;
-            } else {
-                insertStatus = false;
-            }
-
-            // 冷蔵庫内データの更新
-            axios.post('/api/update_refrigerator', {
-                ingredientId: ingredient.id,
-                ingredientStatus: ingredient.already_status
-            })
-            .then((res) => {
-                console.log('成功');
-                console.log(res.data.test);
-            })
-            .catch((error) => {
-                console.log('error');
-            });
+let ingredients = ref([]);
 
 
-        }
-            
-    },
-    mounted() {
-        this.getIngredients();
-        
-    }
+// 材料の一覧取得
+const getIngredients = () => {
+    axios.get('/api/ingredient_list')
+    .then((res) => {
+        let getData = [];
+        getData = res.data.allIngredientList;
+        ingredients.value = getData;
+    })
+    .catch((error) => {
+        console.log('error');
+    });
 }
+
+// 材料を選択した時の挙動
+const selectIngredient = (ingredient) => {
+    // 冷蔵庫にあるかどうかのステータスの変更
+    ingredient.already_status = !ingredient.already_status;
+
+    let insertStatus = '';
+    if (ingredient.already_status === true) {
+        insertStatus = true;
+    } else {
+        insertStatus = false;
+    }
+
+    // 冷蔵庫内データの更新
+    axios.post('/api/update_refrigerator', {
+        ingredientId: ingredient.id,
+        ingredientStatus: ingredient.already_status
+    })
+    .then((res) => {
+        console.log('成功');
+        console.log(res.data.test);
+    })
+    .catch((error) => {
+        console.log('error');
+    });
+}
+
+getIngredients();
+
 </script>

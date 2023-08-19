@@ -14,14 +14,10 @@ use Illuminate\Support\Facades\Route;
 */
 
 // k_todo:あとでrouteを消し、全てvueを使用したものにする
-Route::get('/route/{any}', function () {
+Route::get('/{any}', function () {
     return view('main');
 })
 ->where('any', '.*');
-
-Route::get('/', function () {
-    return view('main');
-});
 
 // ログイン処理あとで復活(20220102)
 // Auth::routes();
