@@ -12,6 +12,10 @@ class EncryptCookies extends Middleware
      * @var array<int, string>
      */
     protected $except = [
-        //
+        'phpMyAdmin',
+        'pma_lang',
+        'PHPSESSID',
+        'laravel_session',
+        'XSRF-TOKEN'
     ];
 }

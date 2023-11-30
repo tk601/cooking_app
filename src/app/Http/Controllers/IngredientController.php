@@ -37,4 +37,19 @@ class IngredientController extends Controller
             ]
         );
     }
+
+    /**
+     * 食材グループで検索
+     * 
+     * @param \Illuminate\Http\Request $request
+     * @return json グループで検索された食材の一覧
+     */
+    public function groupIngredientList(Request $request) {
+        $requestData = $request->all();
+        return response()->json(
+            [
+                'allIngredientList' => $requestData
+            ]
+        );
+    }
 }

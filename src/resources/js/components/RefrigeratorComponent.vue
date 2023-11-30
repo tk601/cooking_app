@@ -1,49 +1,54 @@
 <template>
 <div>
-    <div class="container-fluid bg-dark mb-3">
-        <div class="container text-center text-white">
-            冷蔵庫の中身
-        </div>
-    </div>
+    <!-- 検索窓 -->
     <div>
-        冷蔵庫の中身
-    </div>
-    <div>
-        冷蔵庫の中身を編集する
-    </div>
-    <div>
-        <p>食材グループ</p>
-        <div>
-            <p>野菜</p>
-        </div>
-        <div>
-            <p>肉</p>
-        </div>
-        <div>
-            <p>野菜</p>
+        <div class="search-box">
+            <button class="btn search-button" type="button" id="button-addon2"><i class="fas fa-search"></i></button>
+            <input type="text" v-model="search" class="search-input" placeholder="材料を検索">
         </div>
     </div>
-    <div class="container">
+
+    <!-- 食材グループの一覧 -->
+    <div class="group_nav">
+        <div class="btn text-white" style="background:#01b5e4;" @click="selectGroup(1)">肉</div>
+        <div class="btn text-white" style="background:#03d1cf;" @click="selectGroup(2)">野菜</div>
+        <div class="btn text-white" style="background:#95d98a;" @click="selectGroup(3)">海鮮</div>
+        <div class="btn text-white" style="background:#e3bc35;" @click="selectGroup(4)">調味料</div>
+        <div class="btn text-white" style="background:#ec947a;" @click="selectGroup(5)">粉類・麺類</div>
+        <div class="btn text-white" style="background:#4169e1;" @click="selectGroup(6)">卵・乳製品</div>
+        <div class="btn text-white" style="background:#db6e86;" @click="selectGroup(7)">きのこ</div>
+        <div class="btn text-white" style="background:#bab3ec;" @click="selectGroup(8)">大豆加工品</div>
+        <div class="btn text-white" style="background:#b6b6ae;" @click="selectGroup(9)">その他</div>
+    </div>
+
+    <!-- 食材の一覧 -->
+    <div class="container ingredients">
         <div class="row">
-            <div class="col-4 text-center" v-for="(ingredient, index) in ingredients" :key="index">
+            <div class="col-lg-2 col-nd-3 col-4 text-center pb-2" v-for="(ingredient, index) in ingredients" :key="index">
                 <div class="ingredient" @click="selectIngredient(ingredient)">
                     <img src="/image/icons/check_icon.jpg" class="check-logo" :class="{ 'check-active': ingredient.already_status }">
                     <img :src="ingredient.ingredients_image" class="circle-img" :class="{ 'img-active': ingredient.already_status }">    
-                </div>                
+                </div>
                 <p class="ingredients-name">{{ ingredient.ingredients_name }}</p>
             </div>
         </div>
     </div>
+
+    <!-- テスト用 -->
+    
 </div>
 </template>
 
 <style scoped>
+
+/*  ーーーー 材料確認CSS ーーーーーーーーーーーー  */
 .check-active {
     display: block;
 }
 .img-active {
     border: 0.4rem solid #5cb85c;
 }
+
 </style>
 
 
@@ -52,6 +57,23 @@ import { ref } from "vue";
 
 let ingredients = ref([]);
 
+// 材料グループを選択した時
+const selectGroup = (groupId) => {
+    
+    axios.post('/api/group_ingredient_list', {
+        groupId: groupId
+    })
+    .then((res) => {
+        console.log('成功');
+        console.log(res.data.allIngredientList);
+    })
+    .catch((error) => {
+        console.log('error');
+    });
+
+    ingredients.value = '';
+    console.log(ingredients);
+}
 
 // 材料の一覧取得
 const getIngredients = () => {

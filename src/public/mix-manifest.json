@@ -2,5 +2,6 @@
     "/js/app.js": "/js/app.js",
     "/js/router.js": "/js/router.js",
     "/css/app.css": "/css/app.css",
+    "/css/refrigerator.css": "/css/refrigerator.css",
     "/css/main.css": "/css/main.css"
 }

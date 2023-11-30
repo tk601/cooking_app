@@ -19,7 +19,10 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 // 材料一覧の取得
-Route::get('/ingredient_list', 'App\Http\Controllers\IngredientController@ingredientList')->name('ingredient.list');
+Route::get('/ingredient_list', 'App\Http\Controllers\IngredientController@ingredientList');
+
+// 食材グループで検索
+Route::post('/group_ingredient_list', 'App\Http\Controllers\IngredientController@groupIngredientList');
 
 // 冷蔵庫データの更新
 Route::post('/update_refrigerator', 'App\Http\Controllers\RefrigeratorController@update');

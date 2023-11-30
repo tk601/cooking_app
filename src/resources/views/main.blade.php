@@ -12,6 +12,7 @@
     <!-- Styles -->
     <link href="{{ mix('/css/app.css') }}" rel="stylesheet">
     <link href="{{ mix('/css/main.css') }}" rel="stylesheet">
+    <link href="{{ mix('/css/refrigerator.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.4.0/css/all.css">
 </head>
 <body>

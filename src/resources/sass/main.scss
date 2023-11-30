@@ -1,33 +1,17 @@
 // 色の変数を指定
+// main-color
+$main-color: #F29E18;
+$body-color: #f5f4ef;
 $gray: #bebebe;
 $success: #5cb85c;
 
-.ingredient {
-    position: relative;
-    text-align: center;
-    display: inline-block;
-    width: 7rem;
-    height: 7rem;
+.body {
+    background-color: $body-color;
 }
 
-.circle-img {
-    width: 7rem;
-    height: 7rem;
-    border-radius: 50%;
-    border: 0.4rem solid $gray;
-}
-
-.check-logo {
-    position: absolute;
-    display: none;
-	top: 0rem;
-	right: 0rem;
-    width: 2rem;
-    height: 2rem;
-    color: $success;
-    border-radius: 50%;
-}
-
-.ingredients-name {
-    text-align: center;
+#footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 4rem;
 }

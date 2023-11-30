@@ -1,0 +1,67 @@
+// 色の変数を指定
+// main-color
+$main-color: #F29E18;
+$body-color: #f5f4ef;
+$gray: #bebebe;
+$success: #5cb85c;
+
+/*  ーーーー 検索窓 ーーーーーーーーーーーー  */
+.search-input {
+    border: none;
+    outline: none;
+}
+.search-button {
+    color: #F29E18;
+}
+.search-box {
+    border: 0.2rem solid #F29E18;
+    border-radius: 10px;
+    background-color: white;
+    margin: 0.5rem;
+}
+
+
+/*  ーーーー 食材カテゴリ ーーーーーーーーーーーー  */
+.group_nav {
+    display: flex;
+    overflow-x: scroll;
+    color: white;
+}
+.group_nav::-webkit-scrollbar{
+    display:none;
+}
+.group_nav div {
+    width: 30%;
+    flex-shrink: 0;
+}
+
+
+/*  ーーーー 材料一覧 ーーーーーーーーーーーー  */
+.ingredients {
+    margin-top: 0.5rem;
+}
+.ingredient {
+    position: relative;
+    text-align: center;
+    width: 100%;
+    height: 80%;
+}
+.circle-img {
+    width: 100%;
+    height: 90%;
+    border-radius: 50%;
+    border: 0.4rem solid $gray;
+}
+.check-logo {
+    position: absolute;
+    display: none;
+	top: 0rem;
+	right: 0rem;
+    width: 2rem;
+    height: 2rem;
+    color: $success;
+    border-radius: 50%;
+}
+.ingredients-name {
+    text-align: center;
+}
